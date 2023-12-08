@@ -1,0 +1,32 @@
+﻿<VSTemplateManifest Version="1.0" Locale="1033" xmlns="http://schemas.microsoft.com/developer/vstemplatemanifest/2015">
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>CSharp\1033\PLFLARCCAYRClassWeb</RelativePathOnDisk>
+    <TemplateFileName>CSharp.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <TemplateID>{d1b121e3-4b70-4953-a2c0-96b5c2e50822}</TemplateID>
+        <Name Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="103" />
+        <Description Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="102" />
+        <Icon Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="201" />
+        <ProjectType>CSharp</ProjectType>
+        <SortOrder>360</SortOrder>
+        <DefaultName>PLFLARCCAYRClassWeb.PLFLARCCAYR_DSLClassWeb</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+  <VSTemplateContainer TemplateType="Item">
+    <RelativePathOnDisk>VisualBasic\1033\PLFLARCCAYRClassWeb</RelativePathOnDisk>
+    <TemplateFileName>VisualBasic.vstemplate</TemplateFileName>
+    <VSTemplateHeader>
+      <TemplateData xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+        <TemplateID>{47d09de8-8fe6-4617-82b7-0c8914caec41}</TemplateID>
+        <Name Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="103" />
+        <Description Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="102" />
+        <Icon Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="201" />
+        <ProjectType>VisualBasic</ProjectType>
+        <SortOrder>360</SortOrder>
+        <DefaultName>PLFLARCCAYRClassWeb.PLFLARCCAYR_DSLClassWeb</DefaultName>
+      </TemplateData>
+    </VSTemplateHeader>
+  </VSTemplateContainer>
+</VSTemplateManifest>

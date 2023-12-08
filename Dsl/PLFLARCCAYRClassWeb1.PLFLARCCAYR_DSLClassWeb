@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tapiz xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a95d77d2-95bc-46e0-b033-e0e0969d51f9" xmlns="http://schemas.microsoft.com/dsltools/PLFLARCCAYRClassWeb">
+  <clases>
+    <tapizHasClases Id="a0a86f2b-e08c-4e55-b541-abd9fa54490f">
+      <clase Id="ca366960-b1b9-480f-b8fb-2d958be662ca" nombre="skere" id="1">
+        <atributo>
+          <claseHasAtributo Id="682baa82-0d0e-411d-9011-06ba730b1f2f">
+            <atributo Id="d2ec41f3-9c02-4297-ac64-2149e308395e" tipoDato="Byte" />
+          </claseHasAtributo>
+          <claseHasAtributo Id="0e9f6f2f-5123-406f-9b14-81ee5009c4bc">
+            <atributo Id="7994ac3d-009a-4ab7-8f70-a11789592818" tipoDato="Byte" />
+          </claseHasAtributo>
+        </atributo>
+        <operacioned>
+          <claseHasOperacioned Id="c45bf160-4cc5-49a1-aac2-305edde3d264">
+            <operacion Id="f7d9d291-2c6b-47e6-bf2c-8cda82f7bd7c" tipoDato="Byte">
+              <parametro>
+                <operacionHasParametro Id="41fdcea2-6b49-4f2d-acf1-ebe29acb8efc">
+                  <parametros Id="1cf88942-b88b-40f8-87f1-6a9422638c86" tipoDato="Byte" />
+                </operacionHasParametro>
+                <operacionHasParametro Id="14486482-fbe9-41f8-999a-9cccaf9958e4">
+                  <parametros Id="eaa3f7f2-3e2b-460b-a36b-27741cc03582" tipoDato="Byte" />
+                </operacionHasParametro>
+              </parametro>
+            </operacion>
+          </claseHasOperacioned>
+        </operacioned>
+      </clase>
+    </tapizHasClases>
+  </clases>
+</tapiz>

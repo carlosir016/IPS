@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{47d09de8-8fe6-4617-82b7-0c8914caec41}</TemplateID>
+		<Name Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="103"/>
+		<Description Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="102"/>
+		<Icon Package="{e5ddda47-db2a-44bd-b11f-fd632c9c19e4}" ID="201" />
+		<ProjectType>VisualBasic</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>PLFLARCCAYRClassWeb.PLFLARCCAYR_DSLClassWeb</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.PLFLARCCAYR_DSLClassWeb">PLFLARCCAYR_DSLClassWeb.PLFLARCCAYR_DSLClassWeb</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.PLFLARCCAYR_DSLClassWeb.diagram">PLFLARCCAYR_DSLClassWeb.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+
