@@ -173,29 +173,29 @@
     <value>Nombre Tipo Calculada</value>
     <comment>DisplayName for DomainProperty &apos;nombreTipoCalculada&apos; on DomainClass &apos;Elemento&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase</value>
-    <comment>Description for DomainClass &apos;Clase&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre</value>
+    <comment>Description for DomainClass &apos;ClasePadre&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase.DisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>DisplayName for DomainClass &apos;Clase&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadre&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase/nombre.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Nombre</value>
-    <comment>Description for DomainProperty &apos;nombre&apos; on DomainClass &apos;Clase&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/nombre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Nombre</value>
+    <comment>Description for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadre&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase/nombre.DisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/nombre.DisplayName" xml:space="preserve">
     <value>Nombre</value>
-    <comment>DisplayName for DomainProperty &apos;nombre&apos; on DomainClass &apos;Clase&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadre&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase/id.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Id</value>
-    <comment>Description for DomainProperty &apos;id&apos; on DomainClass &apos;Clase&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/id.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Id</value>
+    <comment>Description for DomainProperty &apos;id&apos; on DomainClass &apos;ClasePadre&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Clase/id.DisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/id.DisplayName" xml:space="preserve">
     <value>Id</value>
-    <comment>DisplayName for DomainProperty &apos;id&apos; on DomainClass &apos;Clase&apos;</comment>
+    <comment>DisplayName for DomainProperty &apos;id&apos; on DomainClass &apos;ClasePadre&apos;</comment>
   </data>
   <data name="UPM_IPS.PLFLARCCAYRClassWeb.Atributo.Description" xml:space="preserve">
     <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Atributo</value>
@@ -221,6 +221,22 @@
     <value>Parametros</value>
     <comment>DisplayName for DomainClass &apos;Parametros&apos;</comment>
   </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija</value>
+    <comment>Description for DomainClass &apos;ClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija.DisplayName" xml:space="preserve">
+    <value>Clase Hija</value>
+    <comment>DisplayName for DomainClass &apos;ClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion</value>
+    <comment>Description for DomainClass &apos;ClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion.DisplayName" xml:space="preserve">
+    <value>Clase Agregacion</value>
+    <comment>DisplayName for DomainClass &apos;ClaseAgregacion&apos;</comment>
+  </data>
   <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.Description" xml:space="preserve">
     <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases</value>
     <comment>Description for DomainClass &apos;TapizHasClases&apos;</comment>
@@ -241,81 +257,81 @@
     <value>Clases</value>
     <comment>PropertyDisplayName for DomainRole &apos;Tapiz&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/Clase.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.Clase</value>
-    <comment>Description for DomainRole &apos;Clase&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadre</value>
+    <comment>Description for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/Clase.DisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>DisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/Clase.PropertyDisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases/ClasePadre.PropertyDisplayName" xml:space="preserve">
     <value>Tapiz</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;TapizHasClases&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo</value>
-    <comment>Description for DomainClass &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo</value>
+    <comment>Description for DomainClass &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.DisplayName" xml:space="preserve">
-    <value>Clase Has Atributo</value>
-    <comment>DisplayName for DomainClass &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.DisplayName" xml:space="preserve">
+    <value>Clase Padre Has Atributo</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Clase.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Clase</value>
-    <comment>Description for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.ClasePadre</value>
+    <comment>Description for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Clase.DisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>DisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Clase.PropertyDisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/ClasePadre.PropertyDisplayName" xml:space="preserve">
     <value>Atributo</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Atributo.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Atributo</value>
-    <comment>Description for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/Atributo.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.Atributo</value>
+    <comment>Description for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Atributo.DisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/Atributo.DisplayName" xml:space="preserve">
     <value>Atributo</value>
-    <comment>DisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo/Atributo.PropertyDisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClaseHasAtributo&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo/Atributo.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Atributo&apos; on DomainRelationship &apos;ClasePadreHasAtributo&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned</value>
-    <comment>Description for DomainClass &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned</value>
+    <comment>Description for DomainClass &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.DisplayName" xml:space="preserve">
-    <value>Clase Has Operacioned</value>
-    <comment>DisplayName for DomainClass &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.DisplayName" xml:space="preserve">
+    <value>Clase Padre Has Operacioned</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Clase.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Clase</value>
-    <comment>Description for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.ClasePadre</value>
+    <comment>Description for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Clase.DisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>DisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Clase.PropertyDisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/ClasePadre.PropertyDisplayName" xml:space="preserve">
     <value>Operacioned</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Clase&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+    <comment>PropertyDisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Operacion.Description" xml:space="preserve">
-    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Operacion</value>
-    <comment>Description for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/Operacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.Operacion</value>
+    <comment>Description for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Operacion.DisplayName" xml:space="preserve">
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/Operacion.DisplayName" xml:space="preserve">
     <value>Operacion</value>
-    <comment>DisplayName for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+    <comment>DisplayName for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
-  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned/Operacion.PropertyDisplayName" xml:space="preserve">
-    <value>Clase</value>
-    <comment>PropertyDisplayName for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClaseHasOperacioned&apos;</comment>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned/Operacion.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Operacion&apos; on DomainRelationship &apos;ClasePadreHasOperacioned&apos;</comment>
   </data>
   <data name="UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro.Description" xml:space="preserve">
     <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro</value>
@@ -348,6 +364,174 @@
   <data name="UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro/Parametros.PropertyDisplayName" xml:space="preserve">
     <value>Operacion</value>
     <comment>PropertyDisplayName for DomainRole &apos;Parametros&apos; on DomainRelationship &apos;OperacionHasParametro&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija</value>
+    <comment>Description for DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.DisplayName" xml:space="preserve">
+    <value>Clase Padre References Clase Hija</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/DisjuntaSolapada.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.Disjunta Solapada</value>
+    <comment>Description for DomainProperty &apos;DisjuntaSolapada&apos; on DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/DisjuntaSolapada.DisplayName" xml:space="preserve">
+    <value>Disjunta Solapada</value>
+    <comment>DisplayName for DomainProperty &apos;DisjuntaSolapada&apos; on DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/TotalParcial.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.Total Parcial</value>
+    <comment>Description for DomainProperty &apos;TotalParcial&apos; on DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/TotalParcial.DisplayName" xml:space="preserve">
+    <value>Total Parcial</value>
+    <comment>DisplayName for DomainProperty &apos;TotalParcial&apos; on DomainClass &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClasePadre</value>
+    <comment>Description for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClasePadre.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Hija</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClaseHija.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClaseHija</value>
+    <comment>Description for DomainRole &apos;ClaseHija&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClaseHija.DisplayName" xml:space="preserve">
+    <value>Clase Hija</value>
+    <comment>DisplayName for DomainRole &apos;ClaseHija&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija/ClaseHija.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ClaseHija&apos; on DomainRelationship &apos;ClasePadreReferencesClaseHija&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre</value>
+    <comment>Description for DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre References Target Clase Padre</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/nombre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Nombre</value>
+    <comment>Description for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/nombre.DisplayName" xml:space="preserve">
+    <value>Nombre</value>
+    <comment>DisplayName for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/cardinalidaMinima.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Cardinalida Minima</value>
+    <comment>Description for DomainProperty &apos;cardinalidaMinima&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/cardinalidaMinima.DisplayName" xml:space="preserve">
+    <value>Cardinalida Minima</value>
+    <comment>DisplayName for DomainProperty &apos;cardinalidaMinima&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/cardinalidadMaxima.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Cardinalidad Maxima</value>
+    <comment>Description for DomainProperty &apos;cardinalidadMaxima&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/cardinalidadMaxima.DisplayName" xml:space="preserve">
+    <value>Cardinalidad Maxima</value>
+    <comment>DisplayName for DomainProperty &apos;cardinalidadMaxima&apos; on DomainClass &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/SourceClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.SourceClasePadre</value>
+    <comment>Description for DomainRole &apos;SourceClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/SourceClasePadre.DisplayName" xml:space="preserve">
+    <value>Source Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;SourceClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/SourceClasePadre.PropertyDisplayName" xml:space="preserve">
+    <value>Target Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;SourceClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/TargetClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.TargetClasePadre</value>
+    <comment>Description for DomainRole &apos;TargetClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/TargetClasePadre.DisplayName" xml:space="preserve">
+    <value>Target Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;TargetClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre/TargetClasePadre.PropertyDisplayName" xml:space="preserve">
+    <value>Source Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;TargetClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesTargetClasePadre&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion</value>
+    <comment>Description for DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.DisplayName" xml:space="preserve">
+    <value>Clase Padre References Clase Agregacion</value>
+    <comment>DisplayName for DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/nombre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Nombre</value>
+    <comment>Description for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/nombre.DisplayName" xml:space="preserve">
+    <value>Nombre</value>
+    <comment>DisplayName for DomainProperty &apos;nombre&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/cardinalidadMinima.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Cardinalidad Minima</value>
+    <comment>Description for DomainProperty &apos;cardinalidadMinima&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/cardinalidadMinima.DisplayName" xml:space="preserve">
+    <value>Cardinalidad Minima</value>
+    <comment>DisplayName for DomainProperty &apos;cardinalidadMinima&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/cardinalidadMaxima.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Cardinalidad Maxima</value>
+    <comment>Description for DomainProperty &apos;cardinalidadMaxima&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/cardinalidadMaxima.DisplayName" xml:space="preserve">
+    <value>Cardinalidad Maxima</value>
+    <comment>DisplayName for DomainProperty &apos;cardinalidadMaxima&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/tipoAgregacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Tipo Agregacion</value>
+    <comment>Description for DomainProperty &apos;tipoAgregacion&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/tipoAgregacion.DisplayName" xml:space="preserve">
+    <value>Tipo Agregacion</value>
+    <comment>DisplayName for DomainProperty &apos;tipoAgregacion&apos; on DomainClass &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClasePadre.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClasePadre</value>
+    <comment>Description for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClasePadre.DisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>DisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClasePadre.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Agregacion</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ClasePadre&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClaseAgregacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClaseAgregacion</value>
+    <comment>Description for DomainRole &apos;ClaseAgregacion&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClaseAgregacion.DisplayName" xml:space="preserve">
+    <value>Clase Agregacion</value>
+    <comment>DisplayName for DomainRole &apos;ClaseAgregacion&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion/ClaseAgregacion.PropertyDisplayName" xml:space="preserve">
+    <value>Clase Padre</value>
+    <comment>PropertyDisplayName for DomainRole &apos;ClaseAgregacion&apos; on DomainRelationship &apos;ClasePadreReferencesClaseAgregacion&apos;</comment>
   </data>
   <data name="UPM_IPS.PLFLARCCAYRClassWeb.TipoDato/Byte.DisplayName" xml:space="preserve">
     <value>Byte</value>
@@ -527,6 +711,74 @@
   </data>
   <data name="MetaforaOperacionnombreOpDecDefaultText" xml:space="preserve">
     <value>nombreOpDec</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.CompartmentShape1.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.CompartmentShape1</value>
+    <comment>Description for DomainClass &apos;CompartmentShape1&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.CompartmentShape1.DisplayName" xml:space="preserve">
+    <value>Compartment Shape1</value>
+    <comment>DisplayName for DomainClass &apos;CompartmentShape1&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Herencia.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Herencia</value>
+    <comment>Description for DomainClass &apos;Herencia&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Herencia.DisplayName" xml:space="preserve">
+    <value>Herencia</value>
+    <comment>DisplayName for DomainClass &apos;Herencia&apos;</comment>
+  </data>
+  <data name="HerenciaDisjuntaSolapadaDefaultText" xml:space="preserve">
+    <value>DisjuntaSolapada</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="HerenciaTotalParcialDefaultText" xml:space="preserve">
+    <value>TotalParcial</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Relacion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Relacion</value>
+    <comment>Description for DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Relacion.DisplayName" xml:space="preserve">
+    <value>Relacion</value>
+    <comment>DisplayName for DomainClass &apos;Relacion&apos;</comment>
+  </data>
+  <data name="RelacionnombreDefaultText" xml:space="preserve">
+    <value>nombre</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="RelacioncardinalidadMinimaDefaultText" xml:space="preserve">
+    <value>cardinalidadMinima</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="RelacioncardinalidadMaximaDefaultText" xml:space="preserve">
+    <value>cardinalidadMaxima</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Agregracion.Description" xml:space="preserve">
+    <value>Description for UPM_IPS.PLFLARCCAYRClassWeb.Agregracion</value>
+    <comment>Description for DomainClass &apos;Agregracion&apos;</comment>
+  </data>
+  <data name="UPM_IPS.PLFLARCCAYRClassWeb.Agregracion.DisplayName" xml:space="preserve">
+    <value>Agregracion</value>
+    <comment>DisplayName for DomainClass &apos;Agregracion&apos;</comment>
+  </data>
+  <data name="AgregracionnombreDefaultText" xml:space="preserve">
+    <value>nombre</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="AgregracioncardinalidadMinimaDefaultText" xml:space="preserve">
+    <value>cardinalidadMinima</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="AgregracioncardinalidadMaximaDefaultText" xml:space="preserve">
+    <value>cardinalidadMaxima</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="AgregraciontipoAgregacionDefaultText" xml:space="preserve">
+    <value>tipoAgregacion</value>
     <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">

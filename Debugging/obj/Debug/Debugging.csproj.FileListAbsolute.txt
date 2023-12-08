@@ -1,0 +1,6 @@
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\bin\Debug\Debugging.dll
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\bin\Debug\Debugging.pdb
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\obj\Debug\Debugging.csproj.AssemblyReference.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\obj\Debug\Debugging.csproj.CoreCompileInputs.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\obj\Debug\Debugging.dll
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Debugging\obj\Debug\Debugging.pdb

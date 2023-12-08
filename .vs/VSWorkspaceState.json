@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Dsl"
+    "\\Debugging",
+    "\\Dsl",
+    "\\DslPackage"
   ],
-  "SelectedNode": "\\Dsl\\DslDefinition.dsl",
+  "SelectedNode": "\\DslPackage\\DslPackage.csproj",
   "PreviewInSolutionExplorer": false
 }

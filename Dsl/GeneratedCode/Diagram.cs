@@ -196,6 +196,91 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			return true;
 		}
 		
+		/// <summary>
+		/// Called during view fixup to configure the given child element, after it has been created.
+		/// </summary>
+		/// <remarks>
+		/// Custom code for choosing the shapes attached to either end of a connector is called from here.
+		/// </remarks>
+		protected override void OnChildConfiguring(DslDiagrams::ShapeElement child, bool createdDuringViewFixup)
+		{
+			DslDiagrams::NodeShape sourceShape;
+			DslDiagrams::NodeShape targetShape;
+			DslDiagrams::BinaryLinkShape connector = child as DslDiagrams::BinaryLinkShape;
+			if(connector == null)
+			{
+				base.OnChildConfiguring(child, createdDuringViewFixup);
+				return;
+			}
+			this.GetSourceAndTargetForConnector(connector, out sourceShape, out targetShape);
+			
+			global::System.Diagnostics.Debug.Assert(sourceShape != null && targetShape != null, "Unable to find source and target shapes for connector.");
+			connector.Connect(sourceShape, targetShape);
+		}
+		
+		/// <summary>
+		/// helper method to find the shapes for either end of a connector, including calling the user's custom code
+		/// </summary>
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+		internal void GetSourceAndTargetForConnector(DslDiagrams::BinaryLinkShape connector, out DslDiagrams::NodeShape sourceShape, out DslDiagrams::NodeShape targetShape)
+		{
+			sourceShape = null;
+			targetShape = null;
+			
+			if (sourceShape == null || targetShape == null)
+			{
+				DslDiagrams::NodeShape[] endShapes = GetEndShapesForConnector(connector);
+				if(sourceShape == null)
+				{
+					sourceShape = endShapes[0];
+				}
+				if(targetShape == null)
+				{
+					targetShape = endShapes[1];
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Helper method to find shapes for either end of a connector by looking for shapes associated with either end of the relationship mapped to the connector.
+		/// </summary>
+		private DslDiagrams::NodeShape[] GetEndShapesForConnector(DslDiagrams::BinaryLinkShape connector)
+		{
+			DslModeling::ElementLink link = connector.ModelElement as DslModeling::ElementLink;
+			DslDiagrams::NodeShape sourceShape = null, targetShape = null;
+			if (link != null)
+			{
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = link.LinkedElements;
+				if (linkedElements.Count == 2)
+				{
+					DslDiagrams::Diagram currentDiagram = this.Diagram;
+					DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
+					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+					{
+						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
+						if (shape != null && shape.Diagram == currentDiagram)
+						{
+							sourceShape = shape;
+							break;
+						}
+					}
+					
+					presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
+					foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+					{
+						DslDiagrams::NodeShape shape = presentationElement as DslDiagrams::NodeShape;
+						if (shape != null && shape.Diagram == currentDiagram)
+						{
+							targetShape = shape;
+							break;
+						}
+					}
+		
+				}
+			}
+			
+			return new DslDiagrams::NodeShape[] { sourceShape, targetShape };
+		}
 		
 		/// <summary>
 		/// Creates a new shape for the given model element as part of view fixup
@@ -210,10 +295,25 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::UPM_IPS.PLFLARCCAYRClassWeb.Clase)
+			if(element is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre)
 			{
 				global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase newShape = new global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
+			if(element is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija)
+			{
+				global::UPM_IPS.PLFLARCCAYRClassWeb.Herencia newShape = new global::UPM_IPS.PLFLARCCAYRClassWeb.Herencia(this.Partition);
+				return newShape;
+			}
+			if(element is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre)
+			{
+				global::UPM_IPS.PLFLARCCAYRClassWeb.Relacion newShape = new global::UPM_IPS.PLFLARCCAYRClassWeb.Relacion(this.Partition);
+				return newShape;
+			}
+			if(element is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion)
+			{
+				global::UPM_IPS.PLFLARCCAYRClassWeb.Agregracion newShape = new global::UPM_IPS.PLFLARCCAYRClassWeb.Agregracion(this.Partition);
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -228,6 +328,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		{
 			base.InitializeShapeFields(shapeFields);
 			global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase.DecoratorsInitialized += MetaforaClaseDecoratorMap.OnDecoratorsInitialized;
+			global::UPM_IPS.PLFLARCCAYRClassWeb.Herencia.DecoratorsInitialized += HerenciaDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -243,11 +344,32 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.Clase.nombreDomainPropertyId);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.nombreDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "nombreClaseDec").AssociateValueWith(shape.Store, propertyInfo);
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.Clase.idDomainPropertyId);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.idDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "idDec").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for Herencia.
+		/// </summary>
+		internal static partial class HerenciaDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for Herencia.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.DisjuntaSolapadaDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "DisjuntaSolapada").AssociateValueWith(shape.Store, propertyInfo);
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.TotalParcialDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "TotalParcial").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -317,7 +439,10 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// Rule that initiates view fixup when an element that has an associated shape is added to the model. 
 		/// </summary>
 		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.Clase), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -329,13 +454,17 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 				if (this.SkipFixup(childElement))
 					return;
 				DslModeling::ModelElement parentElement;
+				if(childElement is DslModeling::ElementLink)
+				{
+					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
+				} else
 				if(childElement is global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion)
 				{
 					parentElement = GetParentForOperacion((global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion)childElement);
 				} else
-				if(childElement is global::UPM_IPS.PLFLARCCAYRClassWeb.Clase)
+				if(childElement is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre)
 				{
-					parentElement = GetParentForClase((global::UPM_IPS.PLFLARCCAYRClassWeb.Clase)childElement);
+					parentElement = GetParentForClasePadre((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre)childElement);
 				} else
 				{
 					parentElement = null;
@@ -346,7 +475,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 					DslDiagrams::Diagram.FixUpDiagram(parentElement, childElement);
 				}
 			}
-			public static global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz GetParentForClase( global::UPM_IPS.PLFLARCCAYRClassWeb.Clase root )
+			public static global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz GetParentForClasePadre( global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre root )
 			{
 				// Segments 0 and 1
 				global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz result = root.Tapiz;
@@ -356,19 +485,102 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			public static global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz GetParentForOperacion( global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion root )
 			{
 				// Segments 0 and 1
-				global::UPM_IPS.PLFLARCCAYRClassWeb.Clase root2 = root.Clase;
+				global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre root2 = root.ClasePadre;
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
 				global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz result = root2.Tapiz;
 				if ( result == null ) return null;
 				return result;
 			}
+			private static DslModeling::ModelElement GetParentForRelationship(DslModeling::ElementLink elementLink)
+			{
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::ModelElement> linkedElements = elementLink.LinkedElements;
+	
+				if (linkedElements.Count == 2)
+				{
+					DslDiagrams::ShapeElement sourceShape = linkedElements[0] as DslDiagrams::ShapeElement;
+					DslDiagrams::ShapeElement targetShape = linkedElements[1] as DslDiagrams::ShapeElement;
+	
+					if(sourceShape == null)
+					{
+						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[0]);
+						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+						{
+							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
+							if (shape != null)
+							{
+								sourceShape = shape;
+								break;
+							}
+						}
+					}
+					
+					if(targetShape == null)
+					{
+						DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> presentationElements = DslDiagrams::PresentationViewsSubject.GetPresentation(linkedElements[1]);
+						foreach (DslDiagrams::PresentationElement presentationElement in presentationElements)
+						{
+							DslDiagrams::ShapeElement shape = presentationElement as DslDiagrams::ShapeElement;
+							if (shape != null)
+							{
+								targetShape = shape;
+								break;
+							}
+						}
+					}
+					
+					if(sourceShape == null || targetShape == null)
+					{
+						global::System.Diagnostics.Debug.Fail("Unable to find source and/or target shape for view fixup.");
+						return null;
+					}
+	
+					DslDiagrams::ShapeElement sourceParent = sourceShape.ParentShape;
+					DslDiagrams::ShapeElement targetParent = targetShape.ParentShape;
+	
+					while (sourceParent != targetParent && sourceParent != null)
+					{
+						DslDiagrams::ShapeElement curParent = targetParent;
+						while (sourceParent != curParent && curParent != null)
+						{
+							curParent = curParent.ParentShape;
+						}
+	
+						if(sourceParent == curParent)
+						{
+							break;
+						}
+						else
+						{
+							sourceParent = sourceParent.ParentShape;
+						}
+					}
+	
+					while (sourceParent != null)
+					{
+						// ensure that the parent can parent connectors (i.e., a diagram or a swimlane).
+						if(sourceParent is DslDiagrams::Diagram || sourceParent is DslDiagrams::SwimlaneShape)
+						{
+							break;
+						}
+						else
+						{
+							sourceParent = sourceParent.ParentShape;
+						}
+					}
+	
+					global::System.Diagnostics.Debug.Assert(sourceParent != null && sourceParent.ModelElement != null, "Unable to find common parent for view fixup.");
+					return sourceParent.ModelElement;
+				}
+	
+				return null;
+			}
 		}
 		
 		/// <summary>
 		/// Rule to update compartments when an item is added to the list
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemAddRule : DslModeling::AddRule
 		{
@@ -386,9 +598,9 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 				if(e==null) throw new global::System.ArgumentNullException("e");
 				if (e.ModelElement.IsDeleted)
 					return;
-				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo)
+				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo)
 				{
-					global::System.Collections.IEnumerable elements = GetClaseForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo)e.ModelElement);
+					global::System.Collections.IEnumerable elements = GetClasePadreForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo)e.ModelElement);
 					UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 				}
 				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro)
@@ -399,17 +611,17 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			}
 			
 			#region static DomainPath traversal methods to get the list of compartments to update
-			internal static global::System.Collections.ICollection GetClaseForMetaforaClaseAtrCompartmentFromLastLink(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo root)
+			internal static global::System.Collections.ICollection GetClasePadreForMetaforaClaseAtrCompartmentFromLastLink(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo root)
 			{
 				// Segment 0
-				global::UPM_IPS.PLFLARCCAYRClassWeb.Clase result = root.Clase;
+				global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre result = root.ClasePadre;
 				if ( result == null ) return new DslModeling::ModelElement[0];
 				return new DslModeling::ModelElement[] {result};
 			}
-			internal static global::System.Collections.ICollection GetClaseForMetaforaClaseAtrCompartment(global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo root)
+			internal static global::System.Collections.ICollection GetClasePadreForMetaforaClaseAtrCompartment(global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo root)
 			{
 				// Segments 1 and 0
-				global::UPM_IPS.PLFLARCCAYRClassWeb.Clase result = root.Clase;
+				global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre result = root.ClasePadre;
 				if ( result == null ) return new DslModeling::ModelElement[0];
 				return new DslModeling::ModelElement[] {result};
 			}
@@ -472,7 +684,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// <summary>
 		/// Rule to update compartments when an items is removed from the list
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemDeleteRule : DslModeling::DeleteRule
 		{
@@ -488,9 +700,9 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			internal static void ElementDeleted(DslModeling::ElementDeletedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo)
+				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo)
 				{
-					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo)e.ModelElement);
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo)e.ModelElement);
 					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 				}
 				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro)
@@ -522,7 +734,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 				if(e==null) throw new global::System.ArgumentNullException("e");
 				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo && e.DomainProperty.Id == global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo.nombreTipoCalculadaDomainPropertyId)
 				{
-					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.ModelElement);
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.ModelElement);
 					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 				}
 				if(e.ModelElement is global::UPM_IPS.PLFLARCCAYRClassWeb.Parametros && e.DomainProperty.Id == global::UPM_IPS.PLFLARCCAYRClassWeb.Parametros.nombreTipoCalculadaDomainPropertyId)
@@ -536,7 +748,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// <summary>
 		/// Rule to update compartments when a roleplayer change happens
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemRolePlayerChangeRule : DslModeling::RolePlayerChangeRule 
 		{
@@ -552,11 +764,11 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			internal static void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				if(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
 				{
 					if(e.DomainRole.IsSource)
 					{
-						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.OldRolePlayer);
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.OldRolePlayer);
 						//foreach(DslModeling::ModelElement element in oldElements)
 						//{
 						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
@@ -570,12 +782,12 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 						//	}
 						//}
 						
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo)e.ElementLink);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartmentFromLastLink((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo)e.ElementLink);
 						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 					}
 					else 
 					{
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.NewRolePlayer);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.NewRolePlayer);
 						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 					}
 				}
@@ -612,7 +824,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// <summary>
 		/// Rule to update compartments when the order of items in the list changes.
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
 		internal sealed class CompartmentItemRolePlayerPositionChangeRule : DslModeling::RolePlayerPositionChangeRule 
 		{
@@ -628,11 +840,11 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			internal static void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e, bool repaintOnly)
 			{
 				if(e==null) throw new global::System.ArgumentNullException("e");
-				if(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				if(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
 				{
 					if(!e.CounterpartDomainRole.IsSource)
 					{
-						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClaseForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.CounterpartRolePlayer);
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetClasePadreForMetaforaClaseAtrCompartment((global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo)e.CounterpartRolePlayer);
 						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase), "AtrCompartment", repaintOnly);
 					}
 				}
@@ -647,4 +859,92 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			}
 		}
 	
+		/// <summary>
+		/// A rule which fires when data mapped to outer text decorators has changed,
+		/// so we can update the decorator host's bounds.
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija), InitiallyDisabled=true)]
+		internal sealed class DecoratorPropertyChanged : DslModeling::ChangeRule
+		{
+			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
+			public override void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e)
+			{
+				if(e == null) throw new global::System.ArgumentNullException("e");
+				
+				if (e.DomainProperty.Id == global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.DisjuntaSolapadaDomainPropertyId)
+				{
+					DslDiagrams::Decorator decorator = global::UPM_IPS.PLFLARCCAYRClassWeb.Herencia.FindHerenciaDecorator("DisjuntaSolapada");
+					if(decorator != null)
+					{
+						decorator.UpdateDecoratorHostShapes(e.ModelElement, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.DomainClassId);
+					}
+				}
+				else if (e.DomainProperty.Id == global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.TotalParcialDomainPropertyId)
+				{
+					DslDiagrams::Decorator decorator = global::UPM_IPS.PLFLARCCAYRClassWeb.Herencia.FindHerenciaDecorator("TotalParcial");
+					if(decorator != null)
+					{
+						decorator.UpdateDecoratorHostShapes(e.ModelElement, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.DomainClassId);
+					}
+				}
+			}
+		}
+	
+		/// <summary>
+		/// Reroute a connector when the role players of its underlying relationship change
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
+		{
+			/// <summary>
+			/// Reroute a connector when the role players of its underlying relationship change
+			/// </summary>
+			public override void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e)
+			{
+				if (e == null) throw new global::System.ArgumentNullException("e");
+	
+				global::System.Collections.ObjectModel.ReadOnlyCollection<DslDiagrams::PresentationViewsSubject> connectorLinks = DslDiagrams::PresentationViewsSubject.GetLinksToPresentation(e.ElementLink);
+				foreach (DslDiagrams::PresentationViewsSubject connectorLink in connectorLinks)
+				{
+					// Fix up any binary link shapes attached to the element link.
+					DslDiagrams::BinaryLinkShape linkShape = connectorLink.Presentation as DslDiagrams::BinaryLinkShape;
+					if (linkShape != null)
+					{
+						global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDiagram diagram = linkShape.Diagram as global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDiagram;
+						if (diagram != null)
+						{
+							if (e.NewRolePlayer != null)
+							{
+								DslDiagrams::NodeShape fromShape;
+								DslDiagrams::NodeShape toShape;
+								diagram.GetSourceAndTargetForConnector(linkShape, out fromShape, out toShape);
+								if (fromShape != null && toShape != null)
+								{
+									if (!object.Equals(fromShape, linkShape.FromShape))
+									{
+										linkShape.FromShape = fromShape;
+									}
+									if (!object.Equals(linkShape.ToShape, toShape))
+									{
+										linkShape.ToShape = toShape;
+									}
+								}
+								else
+								{
+									// delete the connector if we cannot find an appropriate target shape.
+									linkShape.Delete();
+								}
+							}
+							else
+							{
+								// delete the connector if the new role player is null.
+								linkShape.Delete();
+							}
+						}
+					}
+				}
+			}
+		}
 	}

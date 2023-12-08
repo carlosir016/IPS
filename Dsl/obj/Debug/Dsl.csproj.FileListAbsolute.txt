@@ -82,8 +82,6 @@ C:\Users\LuisAlejandro\source\repos\PLFLARCCAYRClassWeb\Dsl\obj\Debug\Dsl.csproj
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\GeneratedCode\PLFLARCCAYRClassWebSchema.xsd
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\UPM_IPS.PLFLARCCAYRClassWeb.Dsl.dll
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\UPM_IPS.PLFLARCCAYRClassWeb.Dsl.pdb
-C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.Modeling.Sdk.Diagrams.dll
-C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.Modeling.Sdk.dll
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.TextTemplating.dll
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
@@ -131,3 +129,4 @@ C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\obj\Debug\Dsl.cs
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\obj\Debug\Dsl.csproj.CopyComplete
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\obj\Debug\UPM_IPS.PLFLARCCAYRClassWeb.Dsl.dll
 C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\obj\Debug\UPM_IPS.PLFLARCCAYRClassWeb.Dsl.pdb
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\Dsl\bin\Debug\Microsoft.VisualStudio.Shell.Design.xml

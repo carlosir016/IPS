@@ -97,37 +97,82 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Clase -->
-  <xsd:element name="clase" type="Clase" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="Clase">
+  <!-- ClasePadre -->
+  <xsd:element name="clasePadre" type="ClasePadre" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadre">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Relationship: ClaseHasAtributo -->
+          <!-- Relationship: ClasePadreHasAtributo -->
           <xsd:element name="atributo" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ClaseHasAtributo</xsd:documentation>
+              <xsd:documentation>Instances of ClasePadreHasAtributo</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="claseHasAtributo" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="clasePadreHasAtributo" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ClaseHasAtributo needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ClasePadreHasAtributo needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: ClaseHasOperacioned -->
+          <!-- Relationship: ClasePadreHasOperacioned -->
           <xsd:element name="operacioned" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of ClaseHasOperacioned</xsd:documentation>
+              <xsd:documentation>Instances of ClasePadreHasOperacioned</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="claseHasOperacioned" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="clasePadreHasOperacioned" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of ClaseHasOperacioned needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of ClasePadreHasOperacioned needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ClasePadreReferencesClaseHija -->
+          <xsd:element name="claseHija" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ClasePadreReferencesClaseHija</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="clasePadreReferencesClaseHija" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ClasePadreReferencesClaseHija needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ClasePadreReferencesTargetClasePadre -->
+          <xsd:element name="targetClasePadre" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ClasePadreReferencesTargetClasePadre</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="clasePadreReferencesTargetClasePadre" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ClasePadreReferencesTargetClasePadre needs to be serialized in full-form]</xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <!-- Relationship: ClasePadreReferencesClaseAgregacion -->
+          <xsd:element name="claseAgregacion" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Instances of ClasePadreReferencesClaseAgregacion</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element ref="clasePadreReferencesClaseAgregacion" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation>[Instance of ClasePadreReferencesClaseAgregacion needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -148,11 +193,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Clase Moniker -->
-  <xsd:element name="claseMoniker" type="ClaseMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ClaseMoniker">
+  <!-- ClasePadre Moniker -->
+  <xsd:element name="clasePadreMoniker" type="ClasePadreMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for Clase instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ClasePadre instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -263,14 +308,68 @@
     </xsd:complexContent>
   </xsd:complexType>
   
+  <!-- ClaseHija -->
+  <xsd:element name="claseHija" type="ClaseHija" substitutionGroup="clasePadre" />
+  <xsd:complexType name="ClaseHija">
+    <xsd:complexContent>
+      <xsd:extension base="ClasePadre">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClaseHija Moniker -->
+  <xsd:element name="claseHijaMoniker" type="ClaseHijaMoniker" substitutionGroup="clasePadreMoniker" />
+  <xsd:complexType name="ClaseHijaMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ClaseHija instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ClasePadreMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClaseAgregacion -->
+  <xsd:element name="claseAgregacion" type="ClaseAgregacion" substitutionGroup="clasePadre" />
+  <xsd:complexType name="ClaseAgregacion">
+    <xsd:complexContent>
+      <xsd:extension base="ClasePadre">
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClaseAgregacion Moniker -->
+  <xsd:element name="claseAgregacionMoniker" type="ClaseAgregacionMoniker" substitutionGroup="clasePadreMoniker" />
+  <xsd:complexType name="ClaseAgregacionMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ClaseAgregacion instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="ClasePadreMoniker">
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
   <!-- TapizHasClases -->
   <xsd:element name="tapizHasClases" type="TapizHasClases" substitutionGroup="core:modelElement" />
   <xsd:complexType name="TapizHasClases">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end Clase -->
-          <xsd:element ref="clase" minOccurs="1" maxOccurs="1">
+          <!-- Target end ClasePadre -->
+          <xsd:element ref="clasePadre" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -303,9 +402,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ClaseHasAtributo -->
-  <xsd:element name="claseHasAtributo" type="ClaseHasAtributo" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ClaseHasAtributo">
+  <!-- ClasePadreHasAtributo -->
+  <xsd:element name="clasePadreHasAtributo" type="ClasePadreHasAtributo" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadreHasAtributo">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -326,11 +425,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ClaseHasAtributo Moniker -->
-  <xsd:element name="claseHasAtributoMoniker" type="ClaseHasAtributoMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ClaseHasAtributoMoniker">
+  <!-- ClasePadreHasAtributo Moniker -->
+  <xsd:element name="clasePadreHasAtributoMoniker" type="ClasePadreHasAtributoMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreHasAtributoMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ClaseHasAtributo instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ClasePadreHasAtributo instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -343,9 +442,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ClaseHasOperacioned -->
-  <xsd:element name="claseHasOperacioned" type="ClaseHasOperacioned" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="ClaseHasOperacioned">
+  <!-- ClasePadreHasOperacioned -->
+  <xsd:element name="clasePadreHasOperacioned" type="ClasePadreHasOperacioned" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadreHasOperacioned">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
@@ -366,11 +465,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- ClaseHasOperacioned Moniker -->
-  <xsd:element name="claseHasOperacionedMoniker" type="ClaseHasOperacionedMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="ClaseHasOperacionedMoniker">
+  <!-- ClasePadreHasOperacioned Moniker -->
+  <xsd:element name="clasePadreHasOperacionedMoniker" type="ClasePadreHasOperacionedMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreHasOperacionedMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for ClaseHasOperacioned instance.</xsd:documentation>
+      <xsd:documentation>Moniker for ClasePadreHasOperacioned instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -411,6 +510,144 @@
   <xsd:complexType name="OperacionHasParametroMoniker">
     <xsd:annotation>
       <xsd:documentation>Moniker for OperacionHasParametro instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesClaseHija -->
+  <xsd:element name="clasePadreReferencesClaseHija" type="ClasePadreReferencesClaseHija" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadreReferencesClaseHija">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ClaseHija -->
+          <xsd:element ref="claseHijaMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: DisjuntaSolapada -->
+        <xsd:attribute name="disjuntaSolapada" type="xsd:string" />
+        <!-- Property: TotalParcial -->
+        <xsd:attribute name="totalParcial" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesClaseHija Moniker -->
+  <xsd:element name="clasePadreReferencesClaseHijaMoniker" type="ClasePadreReferencesClaseHijaMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreReferencesClaseHijaMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ClasePadreReferencesClaseHija instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesTargetClasePadre -->
+  <xsd:element name="clasePadreReferencesTargetClasePadre" type="ClasePadreReferencesTargetClasePadre" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadreReferencesTargetClasePadre">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ClasePadre -->
+          <xsd:element ref="clasePadreMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: nombre -->
+        <xsd:attribute name="nombre" type="xsd:string" />
+        <!-- Property: cardinalidaMinima -->
+        <xsd:attribute name="cardinalidaMinima" type="xsd:string" />
+        <!-- Property: cardinalidadMaxima -->
+        <xsd:attribute name="cardinalidadMaxima" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesTargetClasePadre Moniker -->
+  <xsd:element name="clasePadreReferencesTargetClasePadreMoniker" type="ClasePadreReferencesTargetClasePadreMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreReferencesTargetClasePadreMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ClasePadreReferencesTargetClasePadre instance.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElementMoniker">
+        <xsd:attribute name="Id" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesClaseAgregacion -->
+  <xsd:element name="clasePadreReferencesClaseAgregacion" type="ClasePadreReferencesClaseAgregacion" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="ClasePadreReferencesClaseAgregacion">
+    <xsd:complexContent>
+      <xsd:extension base="core:ModelElement">
+        <xsd:sequence minOccurs="0" maxOccurs="1">
+          <!-- Target end ClaseAgregacion -->
+          <xsd:element ref="claseAgregacionMoniker" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>[Target role-player]</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <!-- Id -->
+        <xsd:attribute name="Id" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: nombre -->
+        <xsd:attribute name="nombre" type="xsd:string" />
+        <!-- Property: cardinalidadMinima -->
+        <xsd:attribute name="cardinalidadMinima" type="xsd:string" />
+        <!-- Property: cardinalidadMaxima -->
+        <xsd:attribute name="cardinalidadMaxima" type="xsd:string" />
+        <!-- Property: tipoAgregacion -->
+        <xsd:attribute name="tipoAgregacion" type="xsd:string" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <!-- ClasePadreReferencesClaseAgregacion Moniker -->
+  <xsd:element name="clasePadreReferencesClaseAgregacionMoniker" type="ClasePadreReferencesClaseAgregacionMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="ClasePadreReferencesClaseAgregacionMoniker">
+    <xsd:annotation>
+      <xsd:documentation>Moniker for ClasePadreReferencesClaseAgregacion instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

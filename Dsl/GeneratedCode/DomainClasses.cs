@@ -141,12 +141,12 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// Gets a list of Clases.
 		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.Tapiz
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Clase> Clases
+		public virtual DslModeling::LinkedElementCollection<ClasePadre> Clases
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Clase>, Clase>(global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.TapizDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClasePadre>, ClasePadre>(global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.TapizDomainRoleId);
 			}
 		}
 		#endregion
@@ -170,7 +170,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			{
 				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
 				
-				if (rootElementDomainInfo.IsDerivedFrom(global::UPM_IPS.PLFLARCCAYRClassWeb.Clase.DomainClassId)) 
+				if (rootElementDomainInfo.IsDerivedFrom(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.DomainClassId)) 
 				{
 					return true;
 				}
@@ -199,11 +199,11 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			if ( sourceElement == null ) throw new global::System.ArgumentNullException("sourceElement");
 		
 				
-			global::UPM_IPS.PLFLARCCAYRClassWeb.Clase sourceClase1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Clase;
-			if (sourceClase1 != null)
+			global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre sourceClasePadre1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre;
+			if (sourceClasePadre1 != null)
 			{
 				// Create link for path TapizHasClases.Clases
-				this.Clases.Add(sourceClase1);
+				this.Clases.Add(sourceClasePadre1);
 
 				return;
 			}
@@ -230,15 +230,15 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		{
 			if (sourceElement == null) throw new global::System.ArgumentNullException("sourceElement");
 				
-			global::UPM_IPS.PLFLARCCAYRClassWeb.Clase sourceClase1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Clase;
-			if (sourceClase1 != null)
+			global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre sourceClasePadre1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre;
+			if (sourceClasePadre1 != null)
 			{
 				// Delete link for path TapizHasClases.Clases
 				
-				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz)this, sourceClase1))
+				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.Tapiz)this, sourceClasePadre1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.TapizDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClaseDomainRoleId);
+					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.TapizDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadreDomainRoleId);
 				}
 
 				return;
@@ -533,20 +533,20 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 namespace UPM_IPS.PLFLARCCAYRClassWeb
 {
 	/// <summary>
-	/// DomainClass Clase
-	/// Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase
+	/// DomainClass ClasePadre
+	/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre
 	/// </summary>
-	[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("bb1a8246-8c36-49b4-96d6-7c79244eaeba")]
-	public partial class Clase : DslModeling::ModelElement
+	public partial class ClasePadre : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// Clase domain class Id.
+		/// ClasePadre domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xbb1a8246, 0x8c36, 0x49b4, 0x96, 0xd6, 0x7c, 0x79, 0x24, 0x4e, 0xae, 0xba);
 		/// <summary>
@@ -554,7 +554,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Clase(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public ClasePadre(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -564,7 +564,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Clase(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public ClasePadre(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -583,10 +583,10 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		
 		/// <summary>
 		/// Gets or sets the value of nombre domain property.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Nombre
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Nombre
 		/// </summary>
-		[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase/nombre.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase/nombre.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/nombre.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/nombre.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("dd35a559-221c-4e8d-a665-bf1ecb088b2f")]
 		public global::System.String nombre
 		{
@@ -602,19 +602,19 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			}
 		}
 		/// <summary>
-		/// Value handler for the Clase.nombre domain property.
+		/// Value handler for the ClasePadre.nombre domain property.
 		/// </summary>
-		internal sealed partial class nombrePropertyHandler : DslModeling::DomainPropertyValueHandler<Clase, global::System.String>
+		internal sealed partial class nombrePropertyHandler : DslModeling::DomainPropertyValueHandler<ClasePadre, global::System.String>
 		{
 			private nombrePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Clase.nombre domain property value handler.
+			/// Gets the singleton instance of the ClasePadre.nombre domain property value handler.
 			/// </summary>
 			public static readonly nombrePropertyHandler Instance = new nombrePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Clase.nombre domain property.
+			/// Gets the Id of the ClasePadre.nombre domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -630,7 +630,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Clase element)
+			public override sealed global::System.String GetValue(ClasePadre element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.nombrePropertyStorage;
@@ -641,7 +641,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Clase element, global::System.String newValue)
+			public override sealed void SetValue(ClasePadre element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -670,10 +670,10 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		
 		/// <summary>
 		/// Gets or sets the value of id domain property.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Id
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Id
 		/// </summary>
-		[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase/id.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.Clase/id.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/id.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre/id.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("caf5e179-6e63-400e-868c-1e6e5383b656")]
 		public global::System.String id
 		{
@@ -689,19 +689,19 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			}
 		}
 		/// <summary>
-		/// Value handler for the Clase.id domain property.
+		/// Value handler for the ClasePadre.id domain property.
 		/// </summary>
-		internal sealed partial class idPropertyHandler : DslModeling::DomainPropertyValueHandler<Clase, global::System.String>
+		internal sealed partial class idPropertyHandler : DslModeling::DomainPropertyValueHandler<ClasePadre, global::System.String>
 		{
 			private idPropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Clase.id domain property value handler.
+			/// Gets the singleton instance of the ClasePadre.id domain property value handler.
 			/// </summary>
 			public static readonly idPropertyHandler Instance = new idPropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Clase.id domain property.
+			/// Gets the Id of the ClasePadre.id domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -717,7 +717,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Clase element)
+			public override sealed global::System.String GetValue(ClasePadre element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.idPropertyStorage;
@@ -728,7 +728,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Clase element, global::System.String newValue)
+			public override sealed void SetValue(ClasePadre element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -746,19 +746,19 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		#region Tapiz opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Tapiz.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.Clase
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadre
 		/// </summary>
 		public virtual Tapiz Tapiz
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClaseDomainRoleId) as Tapiz;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadreDomainRoleId) as Tapiz;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClaseDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadreDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -766,14 +766,14 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		
 		/// <summary>
 		/// Gets a list of Atributo.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Clase
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.ClasePadre
 		/// </summary>
 		public virtual DslModeling::LinkedElementCollection<Atributo> Atributo
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Atributo>, Atributo>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.ClaseDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Atributo>, Atributo>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.ClasePadreDomainRoleId);
 			}
 		}
 		#endregion
@@ -781,14 +781,78 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		
 		/// <summary>
 		/// Gets a list of Operacioned.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Clase
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.ClasePadre
 		/// </summary>
 		public virtual DslModeling::LinkedElementCollection<Operacion> Operacioned
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Operacion>, Operacion>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.ClaseDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Operacion>, Operacion>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.ClasePadreDomainRoleId);
+			}
+		}
+		#endregion
+		#region ClaseHija opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ClaseHija.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClasePadre
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClaseHija> ClaseHija
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClaseHija>, ClaseHija>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClasePadreDomainRoleId);
+			}
+		}
+		#endregion
+		#region TargetClasePadre opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of TargetClasePadre.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.SourceClasePadre
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClasePadre> TargetClasePadre
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClasePadre>, ClasePadre>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.SourceClasePadreDomainRoleId);
+			}
+		}
+		#endregion
+		#region SourceClasePadre opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of SourceClasePadre.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.TargetClasePadre
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClasePadre> SourceClasePadre
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClasePadre>, ClasePadre>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.TargetClasePadreDomainRoleId);
+			}
+		}
+		#endregion
+		#region ClaseAgregacion opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ClaseAgregacion.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClasePadre
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClaseAgregacion> ClaseAgregacion
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClaseAgregacion>, ClaseAgregacion>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClasePadreDomainRoleId);
 			}
 		}
 		#endregion
@@ -849,7 +913,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo sourceAtributo1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo;
 			if (sourceAtributo1 != null)
 			{
-				// Create link for path ClaseHasAtributo.Atributo
+				// Create link for path ClasePadreHasAtributo.Atributo
 				this.Atributo.Add(sourceAtributo1);
 
 				return;
@@ -858,7 +922,7 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion sourceOperacion2 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion;
 			if (sourceOperacion2 != null)
 			{
-				// Create link for path ClaseHasOperacioned.Operacioned
+				// Create link for path ClasePadreHasOperacioned.Operacioned
 				this.Operacioned.Add(sourceOperacion2);
 
 				return;
@@ -889,12 +953,12 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo sourceAtributo1 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Atributo;
 			if (sourceAtributo1 != null)
 			{
-				// Delete link for path ClaseHasAtributo.Atributo
+				// Delete link for path ClasePadreHasAtributo.Atributo
 				
-				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.Clase)this, sourceAtributo1))
+				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre)this, sourceAtributo1))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.ClaseDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.AtributoDomainRoleId);
+					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.ClasePadreDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.AtributoDomainRoleId);
 				}
 
 				return;
@@ -903,12 +967,12 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion sourceOperacion2 = sourceElement as global::UPM_IPS.PLFLARCCAYRClassWeb.Operacion;
 			if (sourceOperacion2 != null)
 			{
-				// Delete link for path ClaseHasOperacioned.Operacioned
+				// Delete link for path ClasePadreHasOperacioned.Operacioned
 				
-				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.Clase)this, sourceOperacion2))
+				foreach (DslModeling::ElementLink link in global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.GetLinks((global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre)this, sourceOperacion2))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.ClaseDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.OperacionDomainRoleId);
+					link.Delete(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.ClasePadreDomainRoleId, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.OperacionDomainRoleId);
 				}
 
 				return;
@@ -958,22 +1022,22 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		{
 		}
 		#endregion
-		#region Clase opposite domain role accessor
+		#region ClasePadre opposite domain role accessor
 		/// <summary>
-		/// Gets or sets Clase.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Atributo
+		/// Gets or sets ClasePadre.
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.Atributo
 		/// </summary>
-		public virtual Clase Clase
+		public virtual ClasePadre ClasePadre
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.AtributoDomainRoleId) as Clase;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.AtributoDomainRoleId) as ClasePadre;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.AtributoDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.AtributoDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -1018,22 +1082,22 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 		{
 		}
 		#endregion
-		#region Clase opposite domain role accessor
+		#region ClasePadre opposite domain role accessor
 		/// <summary>
-		/// Gets or sets Clase.
-		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Operacion
+		/// Gets or sets ClasePadre.
+		/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.Operacion
 		/// </summary>
-		public virtual Clase Clase
+		public virtual ClasePadre ClasePadre
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.OperacionDomainRoleId) as Clase;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.OperacionDomainRoleId) as ClasePadre;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.OperacionDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.OperacionDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -1206,6 +1270,120 @@ namespace UPM_IPS.PLFLARCCAYRClassWeb
 			set
 			{
 				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro.ParametrosDomainRoleId, value);
+			}
+		}
+		#endregion
+	}
+}
+namespace UPM_IPS.PLFLARCCAYRClassWeb
+{
+	/// <summary>
+	/// DomainClass ClaseHija
+	/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("56b44783-6940-4ca3-aeaf-8e86d75d0136")]
+	public partial class ClaseHija : ClasePadre
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ClaseHija domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x56b44783, 0x6940, 0x4ca3, 0xae, 0xaf, 0x8e, 0x86, 0xd7, 0x5d, 0x01, 0x36);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ClaseHija(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ClaseHija(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ClasePadre opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ClasePadre.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClaseHija
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClasePadre> ClasePadre
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClasePadre>, ClasePadre>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClaseHijaDomainRoleId);
+			}
+		}
+		#endregion
+	}
+}
+namespace UPM_IPS.PLFLARCCAYRClassWeb
+{
+	/// <summary>
+	/// DomainClass ClaseAgregacion
+	/// Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion
+	/// </summary>
+	[DslDesign::DisplayNameResource("UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion.DisplayName", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion.Description", typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel), "UPM_IPS.PLFLARCCAYRClassWeb.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("af41baeb-fb53-48f2-8922-cc843632e699")]
+	public partial class ClaseAgregacion : ClasePadre
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// ClaseAgregacion domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xaf41baeb, 0xfb53, 0x48f2, 0x89, 0x22, 0xcc, 0x84, 0x36, 0x32, 0xe6, 0x99);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ClaseAgregacion(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public ClaseAgregacion(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region ClasePadre opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of ClasePadre.
+		/// Description for
+		/// UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClaseAgregacion
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<ClasePadre> ClasePadre
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<ClasePadre>, ClasePadre>(global::UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClaseAgregacionDomainRoleId);
 			}
 		}
 		#endregion

@@ -12,7 +12,7 @@
       <ElementMergeDirectives>
         <ElementMergeDirective>
           <Index>
-            <DomainClassMoniker Name="Clase" />
+            <DomainClassMoniker Name="ClasePadre" />
           </Index>
           <LinkCreationPaths>
             <DomainPath>TapizHasClases.Clases</DomainPath>
@@ -39,14 +39,14 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="bb1a8246-8c36-49b4-96d6-7c79244eaeba" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase" Name="Clase" DisplayName="Clase" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+    <DomainClass Id="bb1a8246-8c36-49b4-96d6-7c79244eaeba" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
       <Properties>
-        <DomainProperty Id="dd35a559-221c-4e8d-a665-bf1ecb088b2f" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Nombre" Name="nombre" DisplayName="Nombre">
+        <DomainProperty Id="dd35a559-221c-4e8d-a665-bf1ecb088b2f" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Nombre" Name="nombre" DisplayName="Nombre">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="caf5e179-6e63-400e-868c-1e6e5383b656" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Clase.Id" Name="id" DisplayName="Id">
+        <DomainProperty Id="caf5e179-6e63-400e-868c-1e6e5383b656" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadre.Id" Name="id" DisplayName="Id">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -58,7 +58,7 @@
             <DomainClassMoniker Name="Atributo" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ClaseHasAtributo.Atributo</DomainPath>
+            <DomainPath>ClasePadreHasAtributo.Atributo</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
         <ElementMergeDirective>
@@ -66,7 +66,7 @@
             <DomainClassMoniker Name="Operacion" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>ClaseHasOperacioned.Operacioned</DomainPath>
+            <DomainPath>ClasePadreHasOperacioned.Operacioned</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
       </ElementMergeDirectives>
@@ -96,6 +96,16 @@
         <DomainClassMoniker Name="Elemento" />
       </BaseClass>
     </DomainClass>
+    <DomainClass Id="56b44783-6940-4ca3-aeaf-8e86d75d0136" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHija" Name="ClaseHija" DisplayName="Clase Hija" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+      <BaseClass>
+        <DomainClassMoniker Name="ClasePadre" />
+      </BaseClass>
+    </DomainClass>
+    <DomainClass Id="af41baeb-fb53-48f2-8922-cc843632e699" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseAgregacion" Name="ClaseAgregacion" DisplayName="Clase Agregacion" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+      <BaseClass>
+        <DomainClassMoniker Name="ClasePadre" />
+      </BaseClass>
+    </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="26121035-877c-4adf-95cb-02590d87a626" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases" Name="TapizHasClases" DisplayName="Tapiz Has Clases" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" IsEmbedding="true">
@@ -107,39 +117,39 @@
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="01613520-bd70-47a1-a3ec-f9e549d381c1" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.Clase" Name="Clase" DisplayName="Clase" PropertyName="Tapiz" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Tapiz">
+        <DomainRole Id="01613520-bd70-47a1-a3ec-f9e549d381c1" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TapizHasClases.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" PropertyName="Tapiz" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Tapiz">
           <RolePlayer>
-            <DomainClassMoniker Name="Clase" />
+            <DomainClassMoniker Name="ClasePadre" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="7f86b8f2-d708-4e2c-a259-a908feed5230" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo" Name="ClaseHasAtributo" DisplayName="Clase Has Atributo" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" IsEmbedding="true">
+    <DomainRelationship Id="7f86b8f2-d708-4e2c-a259-a908feed5230" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo" Name="ClasePadreHasAtributo" DisplayName="Clase Padre Has Atributo" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" IsEmbedding="true">
       <Source>
-        <DomainRole Id="154e9a90-390f-4026-9766-687d15c8e98d" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Clase" Name="Clase" DisplayName="Clase" PropertyName="Atributo" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Atributo">
+        <DomainRole Id="154e9a90-390f-4026-9766-687d15c8e98d" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" PropertyName="Atributo" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Atributo">
           <RolePlayer>
-            <DomainClassMoniker Name="Clase" />
+            <DomainClassMoniker Name="ClasePadre" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="5e789619-de4e-4d8a-95a1-6035afc5d525" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasAtributo.Atributo" Name="Atributo" DisplayName="Atributo" PropertyName="Clase" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Clase">
+        <DomainRole Id="5e789619-de4e-4d8a-95a1-6035afc5d525" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasAtributo.Atributo" Name="Atributo" DisplayName="Atributo" PropertyName="ClasePadre" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Clase Padre">
           <RolePlayer>
             <DomainClassMoniker Name="Atributo" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="71f3866f-76f4-43b4-b07a-d551efaeff5d" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned" Name="ClaseHasOperacioned" DisplayName="Clase Has Operacioned" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" IsEmbedding="true">
+    <DomainRelationship Id="71f3866f-76f4-43b4-b07a-d551efaeff5d" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned" Name="ClasePadreHasOperacioned" DisplayName="Clase Padre Has Operacioned" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" IsEmbedding="true">
       <Source>
-        <DomainRole Id="06dca603-956b-49dc-adcd-8482dcd9e7f4" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Clase" Name="Clase" DisplayName="Clase" PropertyName="Operacioned" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Operacioned">
+        <DomainRole Id="06dca603-956b-49dc-adcd-8482dcd9e7f4" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" PropertyName="Operacioned" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Operacioned">
           <RolePlayer>
-            <DomainClassMoniker Name="Clase" />
+            <DomainClassMoniker Name="ClasePadre" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="bbc457e4-8502-4d72-80a4-b451ab1170ea" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClaseHasOperacioned.Operacion" Name="Operacion" DisplayName="Operacion" PropertyName="Clase" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Clase">
+        <DomainRole Id="bbc457e4-8502-4d72-80a4-b451ab1170ea" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreHasOperacioned.Operacion" Name="Operacion" DisplayName="Operacion" PropertyName="ClasePadre" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Clase Padre">
           <RolePlayer>
             <DomainClassMoniker Name="Operacion" />
           </RolePlayer>
@@ -158,6 +168,105 @@
         <DomainRole Id="3538d235-c83a-4906-b43d-597564647fa0" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.OperacionHasParametro.Parametros" Name="Parametros" DisplayName="Parametros" PropertyName="Operacion" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Operacion">
           <RolePlayer>
             <DomainClassMoniker Name="Parametros" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="b0e53b0e-9f34-4dd2-b758-db0684024792" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija" Name="ClasePadreReferencesClaseHija" DisplayName="Clase Padre References Clase Hija" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+      <Properties>
+        <DomainProperty Id="a9a466ab-3202-4364-b64f-8559280ab020" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.Disjunta Solapada" Name="DisjuntaSolapada" DisplayName="Disjunta Solapada">
+          <Type>
+            <DomainEnumerationMoniker Name="TipoHerencia1" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="2e3ae0a9-bc41-4269-ab5b-9cec834da4b8" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.Total Parcial" Name="TotalParcial" DisplayName="Total Parcial">
+          <Type>
+            <DomainEnumerationMoniker Name="TipoHerencia2" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+      <Source>
+        <DomainRole Id="29a7129b-3b6e-4733-ac4d-1ec267a44e97" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" PropertyName="ClaseHija" PropertyDisplayName="Clase Hija">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClasePadre" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="83647cae-b707-4f40-90fc-94d102a6a201" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseHija.ClaseHija" Name="ClaseHija" DisplayName="Clase Hija" PropertyName="ClasePadre" Multiplicity="OneMany" PropertyDisplayName="Clase Padre">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClaseHija" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="f715da6e-1871-49d0-80ec-081064c4ca5a" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre" Name="ClasePadreReferencesTargetClasePadre" DisplayName="Clase Padre References Target Clase Padre" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+      <Properties>
+        <DomainProperty Id="015e67ea-1844-4019-b61c-5dee1e01acac" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Nombre" Name="nombre" DisplayName="Nombre">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="fda96666-5e6b-4516-b41a-7ad528d6d867" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Cardinalida Minima" Name="cardinalidaMinima" DisplayName="Cardinalida Minima">
+          <Type>
+            <DomainEnumerationMoniker Name="CardinalidadMinima" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="af15fd6a-9139-43b1-9d85-7aa92513ab70" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.Cardinalidad Maxima" Name="cardinalidadMaxima" DisplayName="Cardinalidad Maxima">
+          <Type>
+            <DomainEnumerationMoniker Name="CardinalidadMaxima" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+      <Source>
+        <DomainRole Id="6fc465f1-80ab-4330-b58e-cd32c95d178d" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.SourceClasePadre" Name="SourceClasePadre" DisplayName="Source Clase Padre" PropertyName="TargetClasePadre" PropertyDisplayName="Target Clase Padre">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClasePadre" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="74122094-5665-4ae7-bbeb-ba51654cdd04" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesTargetClasePadre.TargetClasePadre" Name="TargetClasePadre" DisplayName="Target Clase Padre" PropertyName="SourceClasePadre" PropertyDisplayName="Source Clase Padre">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClasePadre" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="3894bfe4-d4bf-400e-8182-77bd9d901a45" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion" Name="ClasePadreReferencesClaseAgregacion" DisplayName="Clase Padre References Clase Agregacion" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
+      <Properties>
+        <DomainProperty Id="a73f7e59-1677-46ca-ade0-f951d5175cb0" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Nombre" Name="nombre" DisplayName="Nombre">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8d84a0d5-a127-4423-a457-a728b1be6494" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Cardinalidad Minima" Name="cardinalidadMinima" DisplayName="Cardinalidad Minima">
+          <Type>
+            <DomainEnumerationMoniker Name="CardinalidadMinima" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="0f568bb3-bdbb-4a43-974b-cef51bfa6658" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Cardinalidad Maxima" Name="cardinalidadMaxima" DisplayName="Cardinalidad Maxima">
+          <Type>
+            <DomainEnumerationMoniker Name="CardinalidadMaxima" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="9d8a2f57-3909-4357-b166-3827abfddbe9" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.Tipo Agregacion" Name="tipoAgregacion" DisplayName="Tipo Agregacion">
+          <Type>
+            <DomainEnumerationMoniker Name="tipoAgregacion" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+      <Source>
+        <DomainRole Id="df73a827-a0fb-4d98-966c-adb13c546e78" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClasePadre" Name="ClasePadre" DisplayName="Clase Padre" PropertyName="ClaseAgregacion" PropertyDisplayName="Clase Agregacion">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClasePadre" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="960459a4-332e-4f42-bc06-e3b5fe2e80a0" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.ClasePadreReferencesClaseAgregacion.ClaseAgregacion" Name="ClaseAgregacion" DisplayName="Clase Agregacion" PropertyName="ClasePadre" PropertyDisplayName="Clase Padre">
+          <RolePlayer>
+            <DomainClassMoniker Name="ClaseAgregacion" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -205,6 +314,37 @@
         <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoDato1.String" Name="String" Value="9" />
       </Literals>
     </DomainEnumeration>
+    <DomainEnumeration Name="TipoHerencia1" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia1">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia1.Disjunta" Name="Disjunta" Value="0" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia1.Solapada" Name="Solapada" Value="1" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="TipoHerencia2" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia2">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia2.Total" Name="Total" Value="1" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.TipoHerencia2.Parcial" Name="Parcial" Value="0" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="CardinalidadMinima" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMinima">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMinima.Uno" Name="Uno" Value="0" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMinima.Cero" Name="Cero" Value="1" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMinima.m" Name="m" Value="3" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="CardinalidadMaxima" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMaxima">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMaxima.Uno" Name="Uno" Value="0" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.CardinalidadMaxima.n" Name="n" Value="1" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="tipoAgregacion" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.tipoAgregacion">
+      <Literals>
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.tipoAgregacion.Composicion" Name="Composicion" Value="0" />
+        <EnumerationLiteral Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.tipoAgregacion.Agregacion" Name="Agregacion" Value="1" />
+      </Literals>
+    </DomainEnumeration>
   </Types>
   <Shapes>
     <CompartmentShape Id="9b2d8381-2531-433f-97fe-9fa7d83c1802" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.MetaforaClase" Name="MetaforaClase" DisplayName="Metafora Clase" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" FixedTooltipText="Metafora Clase" FillColor="LightSteelBlue" OutlineColor="SteelBlue" InitialHeight="1" FillGradientMode="None" Geometry="RoundedRectangle">
@@ -223,6 +363,41 @@
       <Compartment FillColor="Lavender" TitleFillColor="Lavender" Name="ParamCompartment" />
     </CompartmentShape>
   </Shapes>
+  <Connectors>
+    <Connector Id="521d54bc-071f-4a90-b809-2a6ff55b2d35" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Herencia" Name="Herencia" DisplayName="Herencia" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" FixedTooltipText="Herencia">
+      <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="DisjuntaSolapada" DisplayName="Disjunta Solapada" DefaultText="DisjuntaSolapada" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="TotalParcial" DisplayName="Total Parcial" DefaultText="TotalParcial" />
+      </ConnectorHasDecorators>
+    </Connector>
+    <Connector Id="d5e53465-7366-49bc-a730-60e79148583e" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Relacion" Name="Relacion" DisplayName="Relacion" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" FixedTooltipText="Relacion">
+      <ConnectorHasDecorators Position="SourceBottom" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="nombre" DisplayName="Nombre" DefaultText="nombre" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="cardinalidadMinima" DisplayName="Cardinalidad Minima" DefaultText="cardinalidadMinima" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="TargetTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="cardinalidadMaxima" DisplayName="Cardinalidad Maxima" DefaultText="cardinalidadMaxima" />
+      </ConnectorHasDecorators>
+    </Connector>
+    <Connector Id="951b2e51-d1e0-4abb-93e5-eefe3d06c405" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.Agregracion" Name="Agregracion" DisplayName="Agregracion" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" FixedTooltipText="Agregracion">
+      <ConnectorHasDecorators Position="SourceBottom" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="nombre" DisplayName="Nombre" DefaultText="nombre" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="cardinalidadMinima" DisplayName="Cardinalidad Minima" DefaultText="cardinalidadMinima" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="TargetTop" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="cardinalidadMaxima" DisplayName="Cardinalidad Maxima" DefaultText="cardinalidadMaxima" />
+      </ConnectorHasDecorators>
+      <ConnectorHasDecorators Position="TargetBottom" OffsetFromShape="0" OffsetFromLine="0">
+        <TextDecorator Name="tipoAgregacion" DisplayName="Tipo Agregacion" DefaultText="tipoAgregacion" />
+      </ConnectorHasDecorators>
+    </Connector>
+  </Connectors>
   <XmlSerializationBehavior Name="PLFLARCCAYRClassWebSerializationBehavior" Namespace="UPM_IPS.PLFLARCCAYRClassWeb">
     <ClassData>
       <XmlClassData TypeName="Tapiz" MonikerAttributeName="" SerializeId="true" MonikerElementName="tapizMoniker" ElementName="tapiz" MonikerTypeName="TapizMoniker">
@@ -253,21 +428,30 @@
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="Clase" MonikerAttributeName="" SerializeId="true" MonikerElementName="claseMoniker" ElementName="clase" MonikerTypeName="ClaseMoniker">
-        <DomainClassMoniker Name="Clase" />
+      <XmlClassData TypeName="ClasePadre" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreMoniker" ElementName="clasePadre" MonikerTypeName="ClasePadreMoniker">
+        <DomainClassMoniker Name="ClasePadre" />
         <ElementData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="atributo">
-            <DomainRelationshipMoniker Name="ClaseHasAtributo" />
+            <DomainRelationshipMoniker Name="ClasePadreHasAtributo" />
           </XmlRelationshipData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="operacioned">
-            <DomainRelationshipMoniker Name="ClaseHasOperacioned" />
+            <DomainRelationshipMoniker Name="ClasePadreHasOperacioned" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="nombre">
-            <DomainPropertyMoniker Name="Clase/nombre" />
+            <DomainPropertyMoniker Name="ClasePadre/nombre" />
           </XmlPropertyData>
           <XmlPropertyData XmlName="id">
-            <DomainPropertyMoniker Name="Clase/id" />
+            <DomainPropertyMoniker Name="ClasePadre/id" />
           </XmlPropertyData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="claseHija">
+            <DomainRelationshipMoniker Name="ClasePadreReferencesClaseHija" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="targetClasePadre">
+            <DomainRelationshipMoniker Name="ClasePadreReferencesTargetClasePadre" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="claseAgregacion">
+            <DomainRelationshipMoniker Name="ClasePadreReferencesClaseAgregacion" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="TapizHasClases" MonikerAttributeName="" SerializeId="true" MonikerElementName="tapizHasClasesMoniker" ElementName="tapizHasClases" MonikerTypeName="TapizHasClasesMoniker">
@@ -284,11 +468,11 @@
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="ClaseHasAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="claseHasAtributoMoniker" ElementName="claseHasAtributo" MonikerTypeName="ClaseHasAtributoMoniker">
-        <DomainRelationshipMoniker Name="ClaseHasAtributo" />
+      <XmlClassData TypeName="ClasePadreHasAtributo" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreHasAtributoMoniker" ElementName="clasePadreHasAtributo" MonikerTypeName="ClasePadreHasAtributoMoniker">
+        <DomainRelationshipMoniker Name="ClasePadreHasAtributo" />
       </XmlClassData>
-      <XmlClassData TypeName="ClaseHasOperacioned" MonikerAttributeName="" SerializeId="true" MonikerElementName="claseHasOperacionedMoniker" ElementName="claseHasOperacioned" MonikerTypeName="ClaseHasOperacionedMoniker">
-        <DomainRelationshipMoniker Name="ClaseHasOperacioned" />
+      <XmlClassData TypeName="ClasePadreHasOperacioned" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreHasOperacionedMoniker" ElementName="clasePadreHasOperacioned" MonikerTypeName="ClasePadreHasOperacionedMoniker">
+        <DomainRelationshipMoniker Name="ClasePadreHasOperacioned" />
       </XmlClassData>
       <XmlClassData TypeName="MetaforaClase" MonikerAttributeName="" SerializeId="true" MonikerElementName="metaforaClaseMoniker" ElementName="metaforaClase" MonikerTypeName="MetaforaClaseMoniker">
         <CompartmentShapeMoniker Name="MetaforaClase" />
@@ -302,16 +486,132 @@
       <XmlClassData TypeName="MetaforaOperacion" MonikerAttributeName="" SerializeId="true" MonikerElementName="metaforaOperacionMoniker" ElementName="metaforaOperacion" MonikerTypeName="MetaforaOperacionMoniker">
         <CompartmentShapeMoniker Name="MetaforaOperacion" />
       </XmlClassData>
+      <XmlClassData TypeName="ClaseHija" MonikerAttributeName="" SerializeId="true" MonikerElementName="claseHijaMoniker" ElementName="claseHija" MonikerTypeName="ClaseHijaMoniker">
+        <DomainClassMoniker Name="ClaseHija" />
+      </XmlClassData>
+      <XmlClassData TypeName="ClasePadreReferencesClaseHija" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreReferencesClaseHijaMoniker" ElementName="clasePadreReferencesClaseHija" MonikerTypeName="ClasePadreReferencesClaseHijaMoniker">
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseHija" />
+        <ElementData>
+          <XmlPropertyData XmlName="disjuntaSolapada">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseHija/DisjuntaSolapada" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="totalParcial">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseHija/TotalParcial" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="ClasePadreReferencesTargetClasePadre" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreReferencesTargetClasePadreMoniker" ElementName="clasePadreReferencesTargetClasePadre" MonikerTypeName="ClasePadreReferencesTargetClasePadreMoniker">
+        <DomainRelationshipMoniker Name="ClasePadreReferencesTargetClasePadre" />
+        <ElementData>
+          <XmlPropertyData XmlName="nombre">
+            <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/nombre" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardinalidaMinima">
+            <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/cardinalidaMinima" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardinalidadMaxima">
+            <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/cardinalidadMaxima" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="ClaseAgregacion" MonikerAttributeName="" SerializeId="true" MonikerElementName="claseAgregacionMoniker" ElementName="claseAgregacion" MonikerTypeName="ClaseAgregacionMoniker">
+        <DomainClassMoniker Name="ClaseAgregacion" />
+      </XmlClassData>
+      <XmlClassData TypeName="ClasePadreReferencesClaseAgregacion" MonikerAttributeName="" SerializeId="true" MonikerElementName="clasePadreReferencesClaseAgregacionMoniker" ElementName="clasePadreReferencesClaseAgregacion" MonikerTypeName="ClasePadreReferencesClaseAgregacionMoniker">
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseAgregacion" />
+        <ElementData>
+          <XmlPropertyData XmlName="nombre">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/nombre" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardinalidadMinima">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/cardinalidadMinima" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="cardinalidadMaxima">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/cardinalidadMaxima" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tipoAgregacion">
+            <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/tipoAgregacion" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="Herencia" MonikerAttributeName="" SerializeId="true" MonikerElementName="herenciaMoniker" ElementName="herencia" MonikerTypeName="HerenciaMoniker">
+        <ConnectorMoniker Name="Herencia" />
+      </XmlClassData>
+      <XmlClassData TypeName="Relacion" MonikerAttributeName="" SerializeId="true" MonikerElementName="relacionMoniker" ElementName="relacion" MonikerTypeName="RelacionMoniker">
+        <ConnectorMoniker Name="Relacion" />
+      </XmlClassData>
+      <XmlClassData TypeName="Agregracion" MonikerAttributeName="" SerializeId="true" MonikerElementName="agregracionMoniker" ElementName="agregracion" MonikerTypeName="AgregracionMoniker">
+        <ConnectorMoniker Name="Agregracion" />
+      </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
   <ExplorerBehavior Name="PLFLARCCAYRClassWebExplorer" />
+  <ConnectionBuilders>
+    <ConnectionBuilder Name="ClasePadreReferencesClaseHijaBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseHija" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClasePadre" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClaseHija" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="ClasePadreReferencesTargetClasePadreBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="ClasePadreReferencesTargetClasePadre" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClasePadre" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClasePadre" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+    <ConnectionBuilder Name="ClasePadreReferencesClaseAgregacionBuilder">
+      <LinkConnectDirective>
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseAgregacion" />
+        <SourceDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClasePadre" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </SourceDirectives>
+        <TargetDirectives>
+          <RolePlayerConnectDirective>
+            <AcceptingClass>
+              <DomainClassMoniker Name="ClaseAgregacion" />
+            </AcceptingClass>
+          </RolePlayerConnectDirective>
+        </TargetDirectives>
+      </LinkConnectDirective>
+    </ConnectionBuilder>
+  </ConnectionBuilders>
   <Diagram Id="4861cff9-a103-4745-a9dd-72e309bf7324" Description="Description for UPM_IPS.PLFLARCCAYRClassWeb.PLFLARCCAYRClassWebDiagram" Name="PLFLARCCAYRClassWebDiagram" DisplayName="Minimal Language Diagram" Namespace="UPM_IPS.PLFLARCCAYRClassWeb" FillColor="AliceBlue">
     <Class>
       <DomainClassMoniker Name="Tapiz" />
     </Class>
     <ShapeMaps>
       <CompartmentShapeMap>
-        <DomainClassMoniker Name="Clase" />
+        <DomainClassMoniker Name="ClasePadre" />
         <ParentElementPath>
           <DomainPath>TapizHasClases.Tapiz/!Tapiz</DomainPath>
         </ParentElementPath>
@@ -319,7 +619,7 @@
           <TextDecoratorMoniker Name="MetaforaClase/nombreClaseDec" />
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Clase/nombre" />
+              <DomainPropertyMoniker Name="ClasePadre/nombre" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -327,7 +627,7 @@
           <TextDecoratorMoniker Name="MetaforaClase/idDec" />
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Clase/id" />
+              <DomainPropertyMoniker Name="ClasePadre/id" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -335,7 +635,7 @@
         <CompartmentMap>
           <CompartmentMoniker Name="MetaforaClase/AtrCompartment" />
           <ElementsDisplayed>
-            <DomainPath>ClaseHasAtributo.Atributo/!Atributo</DomainPath>
+            <DomainPath>ClasePadreHasAtributo.Atributo/!Atributo</DomainPath>
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>
@@ -347,7 +647,7 @@
       <CompartmentShapeMap>
         <DomainClassMoniker Name="Operacion" />
         <ParentElementPath>
-          <DomainPath>ClaseHasOperacioned.Clase/!Clase/TapizHasClases.Tapiz/!Tapiz</DomainPath>
+          <DomainPath>ClasePadreHasOperacioned.ClasePadre/!ClasePadre/TapizHasClases.Tapiz/!Tapiz</DomainPath>
         </ParentElementPath>
         <CompartmentShapeMoniker Name="MetaforaOperacion" />
         <CompartmentMap>
@@ -363,6 +663,92 @@
         </CompartmentMap>
       </CompartmentShapeMap>
     </ShapeMaps>
+    <ConnectorMaps>
+      <ConnectorMap>
+        <ConnectorMoniker Name="Herencia" />
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseHija" />
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Herencia/DisjuntaSolapada" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseHija/DisjuntaSolapada" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Herencia/TotalParcial" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseHija/TotalParcial" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="Relacion" />
+        <DomainRelationshipMoniker Name="ClasePadreReferencesTargetClasePadre" />
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Relacion/cardinalidadMaxima" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/cardinalidaMinima" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Relacion/cardinalidadMinima" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/cardinalidadMaxima" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Relacion/nombre" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesTargetClasePadre/nombre" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+      </ConnectorMap>
+      <ConnectorMap>
+        <ConnectorMoniker Name="Agregracion" />
+        <DomainRelationshipMoniker Name="ClasePadreReferencesClaseAgregacion" />
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Agregracion/cardinalidadMaxima" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/cardinalidadMaxima" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Agregracion/cardinalidadMinima" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/cardinalidadMinima" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Agregracion/tipoAgregacion" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/tipoAgregacion" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="Agregracion/nombre" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="ClasePadreReferencesClaseAgregacion/nombre" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+      </ConnectorMap>
+    </ConnectorMaps>
   </Diagram>
   <Designer CopyPasteGeneration="CopyPasteOnly" FileExtension="PLFLARCCAYR_DSLClassWeb" EditorGuid="a59eef72-a1e0-4275-b086-30b7b49fcf8d">
     <RootClass>
@@ -373,7 +759,7 @@
     </XmlSerializationDefinition>
     <ToolboxTab TabText="PLFLARCCAYRClassWeb">
       <ElementTool Name="ClaseTool" ToolboxIcon="Resources\c.bmp" Caption="Clase" Tooltip="Crea una clase" HelpKeyword="ClaseTool">
-        <DomainClassMoniker Name="Clase" />
+        <DomainClassMoniker Name="ClasePadre" />
       </ElementTool>
       <ElementTool Name="AtributoTool" ToolboxIcon="Resources\A.bmp" Caption="Atributo" Tooltip="Crea un atributo" HelpKeyword="AtributoTool">
         <DomainClassMoniker Name="Atributo" />

@@ -104,3 +104,16 @@ C:\Users\LuisAlejandro\source\repos\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\Ite
 C:\Users\LuisAlejandro\source\repos\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\ItemTemplates\VisualBasic\1033\PLFLARCCAYRClassWeb\PLFLARCCAYR_DSLClassWeb.PLFLARCCAYR_DSLClassWeb
 C:\Users\LuisAlejandro\source\repos\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\ItemTemplates\VisualBasic\1033\PLFLARCCAYRClassWeb\PLFLARCCAYR_DSLClassWeb.diagram
 C:\Users\LuisAlejandro\source\repos\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\templateFiles.json
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\DslPackage.csproj.AssemblyReference.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\VSPackage.resources
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\DslPackage.csproj.GenerateResource.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\Commands.cto
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\VSCT.read.1.tlog
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\VSCT.write.1.tlog
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\resources.json
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\ctoFiles.json
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\VSPackage.resources.original
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\mergeCto.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\DslPackage.csproj.CoreCompileInputs.cache
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\UPM_IPS.PLFLARCCAYRClassWeb.DslPackage.dll
+C:\Users\CARLOS\Desktop\UNIVERSIDAD\IPS\PLFLARCCAYRClassWeb\DslPackage\obj\Debug\UPM_IPS.PLFLARCCAYRClassWeb.DslPackage.pdb
